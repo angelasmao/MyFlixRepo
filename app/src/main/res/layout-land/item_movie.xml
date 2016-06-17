@@ -4,12 +4,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="140dp"
-        android:layout_height="150dp"
+        android:layout_width="220dp"
+        android:layout_height="100dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:id="@+id/ivPoster"
-        android:src="@mipmap/ic_launcher" />
+        android:id="@+id/ivBackground"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginLeft="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,11 +19,9 @@
         android:text="Large Text"
         android:id="@+id/tvTitle"
         android:textSize="15sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingRight="10dp"
+        android:padding="10dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivPoster" />
+        android:layout_toRightOf="@+id/ivBackground" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,12 +29,13 @@
         android:text="New Text"
         android:id="@+id/tvOverview"
         android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textSize="12sp"
         android:layout_below="@+id/tvTitle"
-        android:layout_toRightOf="@+id/ivPoster"
-        android:layout_toEndOf="@+id/ivPoster"
+        android:layout_toRightOf="@+id/ivBackground"
+        android:layout_toEndOf="@+id/ivBackground"
         android:ellipsize="end"
-        android:maxLines="7"/>
+        android:maxLines="5"/>
 
 </RelativeLayout>
