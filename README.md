@@ -38,7 +38,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Currently stuck on the Youtube Player. The first video when app is opened works, but after that any other videos played have a memory leak error. Tried clearing the app/passing application context (sort of).
 
 ## Open-source libraries used
 
