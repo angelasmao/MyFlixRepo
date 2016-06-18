@@ -1,7 +1,6 @@
 package com.codepath.flixster;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -25,9 +24,11 @@ public class VideoActivity extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
 
-        String movieID = getIntent().getStringExtra("movieID");
+        String movieID = getIntent().getStringExtra("id");
 
-        String url = "http://api.themoviedb.org/3/movie/" + movieID + "videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+        final String url = "http://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+
+        //Log.d("Debug", "About to play video at " + url);
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new JsonHttpResponseHandler(){
@@ -37,15 +38,15 @@ public class VideoActivity extends YouTubeBaseActivity {
                 try {
                     movieJsonResults = response.getJSONArray("results");
                     key = movieJsonResults.getJSONObject(0).getString("key");
-                    Log.d("aslkfj", key);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
 
@@ -65,6 +66,10 @@ public class VideoActivity extends YouTubeBaseActivity {
 
                     }
                 });
+
+
+
+
 
     }
 }
